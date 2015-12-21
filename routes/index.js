@@ -45,7 +45,6 @@ router.get('/records', function (req, res, next) {
 router.post('/posts', function (req, res, next) {
     //post is going to be created with the Post mongoose model
     //this creates a new object in memory before saving it
-    console.log('creating user...');
     var post = new Post(req.body);
     
     post.save(function (err, post) {
@@ -76,7 +75,6 @@ router.post('/records', function (req, res, next) {
 //determine the post to use
 //high five
 router.param('post', function (req, res, next, id) {
-console.log('creating user...');
     var query = Post.findById(id);
     query.exec(function (err, post) {
         //first throw an error if found through http
@@ -107,7 +105,6 @@ router.param('record', function (req, res, next, id) {
 });
 //for comment upvotes, I also need a comment param
 router.param('comment', function (req, res, next, id) {
-    console.log('comment param');
     var query = Comment.findById(id);
     query.exec(function (err, comment) {
         if (err) {return next(err); }
@@ -123,7 +120,6 @@ router.param('comment', function (req, res, next, id) {
 router.get('/posts/:post', function (req, res) {
     //using the populate() method, all of the comments associated with this post
     //are loaded
-    console.log('creating user...');
     req.post.populate('comments', function (err, post) {
     //the post object will be retrieved and added to the req object by
     //the param middleware, so we just have to send the
@@ -160,6 +156,112 @@ router.put('/posts/:post/downvote', function (req, res, next) {
 router.put('/posts/:post/addLoss', function (req, res, next) {
     console.log('addLoss');
     req.post.addLoss(function (err, post) {
+        if (err) { return next(err); }
+        res.json(post);
+    });
+});
+//route for post wins against luke
+router.put('/posts/:post/addWinAgainstLuke', function (req, res, next) {
+    req.post.addWinAgainstLuke(function (err, post) {
+        if (err) { return next(err); }
+        res.json(post);
+    });
+});
+//route for post wins against bill
+router.put('/posts/:post/addWinAgainstBill', function (req, res, next) {
+    req.post.addWinAgainstBill(function (err, post) {
+        if (err) { return next(err); }
+        res.json(post);
+    });
+});
+//route for post wins against kevin
+router.put('/posts/:post/addWinAgainstKevin', function (req, res, next) {
+    req.post.addWinAgainstKevin(function (err, post) {
+        if (err) { return next(err); }
+        res.json(post);
+    });
+});
+//route for post wins against jake
+router.put('/posts/:post/addWinAgainstJake', function (req, res, next) {
+    req.post.addWinAgainstJake(function (err, post) {
+        if (err) { return next(err); }
+        res.json(post);
+    });
+});
+//route for post wins against Geoff
+router.put('/posts/:post/addWinAgainstGeoff', function (req, res, next) {
+    req.post.addWinAgainstGeoff(function (err, post) {
+        if (err) { return next(err); }
+        res.json(post);
+    });
+});
+//route for post losses to Geoff
+router.put('/posts/:post/addLossToGeoff', function (req, res, next) {
+    req.post.addLossToGeoff(function (err, post) {
+        if (err) { return next(err); }
+        res.json(post);
+    });
+});
+//route for post losses to Luke
+router.put('/posts/:post/addLossToLuke', function (req, res, next) {
+    req.post.addLossToLuke(function (err, post) {
+        if (err) { return next(err); }
+        res.json(post);
+    });
+});
+//route for post losses to Jake
+router.put('/posts/:post/addLossToJake', function (req, res, next) {
+    debugger;
+    req.post.addLossToJake(function (err, post) {
+        if (err) { return next(err); }
+        res.json(post);
+    });
+});
+//route for post losses to Bill
+router.put('/posts/:post/addLossToBill', function (req, res, next) {
+    req.post.addLossToBill(function (err, post) {
+        if (err) { return next(err); }
+        res.json(post);
+    });
+});
+//route for post losses to Kevin
+router.put('/posts/:post/addLossToKevin', function (req, res, next) {
+    req.post.addLossToKevin(function (err, post) {
+        if (err) { return next(err); }
+        res.json(post);
+    });
+});
+//route for post over time losses to Kevin
+router.put('/posts/:post/addOvertimeLossToKevin', function (req, res, next) {
+    req.post.addOvertimeLossToKevin(function (err, post) {
+        if (err) { return next(err); }
+        res.json(post);
+    });
+});
+//route for post over time losses to Bill
+router.put('/posts/:post/addOvertimeLossToBill', function (req, res, next) {
+    req.post.addOvertimeLossToBill(function (err, post) {
+        if (err) { return next(err); }
+        res.json(post);
+    });
+});
+//route for post over time losses to Luke
+router.put('/posts/:post/addOvertimeLossToLuke', function (req, res, next) {
+    req.post.addOvertimeLossToLuke(function (err, post) {
+        if (err) { return next(err); }
+        res.json(post);
+    });
+});
+//route for post over time losses to Kevin
+router.put('/posts/:post/addOvertimeLossToJake', function (req, res, next) {
+    req.post.addOvertimeLossToJake(function (err, post) {
+        if (err) { return next(err); }
+        res.json(post);
+    });
+});
+//route for post over time losses to Kevin
+router.put('/posts/:post/addOvertimeLossToGeoff', function (req, res, next) {
+    req.post.addOvertimeLossToGeoff(function (err, post) {
         if (err) { return next(err); }
         res.json(post);
     });

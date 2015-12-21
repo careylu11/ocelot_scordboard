@@ -24,30 +24,44 @@
             <h1>Ocelot Leaderboard</h1>
         </div>
         
-        <table style="font-size:40px;"rules="all">
+        <table style="font-size:26px;"rules="all">
         		 <th></th>
-    		     <th style="padding: 15px;" ng-repeat="post in posts | filter: { deleted: false }">
-                <a ng-show="post.name" ng-href="{{post.name}}" target="_self">
-                    {{post.name}}
-                </a>
-             </th>
-            <tr style="padding: 15px;" ng-repeat="post in posts | filter: { deleted: false }">
-                <td ng-show="post.name" ng-href="{{post.name}}" target="_self">
+        		 <th style="padding: 15px;">Luke</th>
+        		 <th style="padding: 15px;">Bill</th>
+        		 <th style="padding: 15px;">Kevin</th>
+        		 <th style="padding: 15px;">Jake</th>
+        		 <th style="padding: 15px;">Geoff</th>
+            <tr style="padding: 40px;" ng-repeat="post in posts | filter: { deleted: false }">
+                <td ng-show="post.name">
                     {{post.name}}
                 </td>
-                <td style="font-size: 16px;">
-                {{post.wins}} - {{post.losses}} - {{post.overtimeLosses}}
+                <td>
+                    {{post.winsAgainstLuke}} - {{post.lossesToLuke}} - {{post.overtimeLossesToLuke}}
+                </td>
+                <td>
+                    {{post.winsAgainstBill}} - {{post.lossesToBill}} - {{post.overtimeLossesToBill}}
+                </td>
+                <td>
+                    {{post.winsAgainstKevin}} - {{post.lossesToKevin}} - {{post.overtimeLossesToKevin}}
+                </td>
+                <td>
+                    {{post.winsAgainstJake}} - {{post.lossesToJake}} - {{post.overtimeLossesToJake}}
+                </td>
+                <td>
+                    {{post.winsAgainstGeoff}} - {{post.lossesToGeoff}} - {{post.overtimeLossesToGeoff}}
                 </td>
             </tr>
         </table>
-    
+            
     		<form ng-submit="enterResult()" style="margin-top:30px">
     		    <h3>Enter Results:<h3>
     				<table rules="all">
     				<tr>
     				<th style="padding: 15px;">Winner:</th>
     				<th style="padding: 15px;">Loser:</th>
-    				<th style="padding: 15px;">Overtime?</th>
+    				<th style="padding: 15px;">Winner Goal Total:</th>
+    				<th style="padding: 15px;">Loser Goal Total:</th>
+    				<th style="padding: 15px;">Overtime:</th>
     				</tr>
     				<tr>
     				<th>
@@ -59,6 +73,12 @@
        			 <select data-ng-model="loser"
                 data-ng-options="post.name for post in posts | filter: { deleted: false }">                
         		 </select>
+						</th>
+						<th>
+    					<input type="text" ng-model="winnerGoals">
+						</th>
+						<th>
+    					<input type="text" ng-model="loserGoals">
 						</th>
 						<th>
     					<input type="checkbox" ng-model="overtime">

@@ -5,8 +5,7 @@ var RecordSchema = new mongoose.Schema({
     winnerGoals: {type: Number, default: 0},
     loser: String,
     loserGoals: {type: Number, default: 0},
-    overtime: Boolean,
-    
+    overtime: {type: Boolean, default: false}
 });
 
 mongoose.model('Record', RecordSchema);

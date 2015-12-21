@@ -17,6 +17,9 @@ function($stateProvider, $urlRouterProvider, $locationProvider) {
       resolve: {
           postPromise: ['posts', function (posts) {
               return posts.getAll();
+          }],
+          recordPromise: ['records', function (records) {
+              return records.getAll();
           }]
       }
     })
@@ -79,6 +82,142 @@ potatoNews.factory('posts', ['$http', function ($http){
             .success(function (data) {
                 //if we know it worked on the backend, update frontend
                 post.wins += 1;
+            });
+    };
+
+    //Add win against Luke
+    o.addWinAgainstLuke = function (post) {
+        //use the express route for this post's id to add an upvote to it in the mongo model
+        return $http.put('/posts/' + post._id + '/addWinAgainstLuke')
+            .success(function (data) {
+                //if we know it worked on the backend, update frontend
+                post.winsAgainstLuke += 1;
+            });
+    };
+    //Add win against Kevin
+    o.addWinAgainstKevin = function (post) {
+        //use the express route for this post's id to add an upvote to it in the mongo model
+        return $http.put('/posts/' + post._id + '/addWinAgainstKevin')
+            .success(function (data) {
+                //if we know it worked on the backend, update frontend
+                post.winsAgainstKevin += 1;
+            });
+    };
+    //Add win against Bill
+    o.addWinAgainstBill = function (post) {
+        //use the express route for this post's id to add an upvote to it in the mongo model
+        return $http.put('/posts/' + post._id + '/addWinAgainstBill')
+            .success(function (data) {
+                //if we know it worked on the backend, update frontend
+                post.winsAgainstBill += 1;
+            });
+    };
+    //Add win against Geoff
+    o.addWinAgainstGeoff = function (post) {
+        //use the express route for this post's id to add an upvote to it in the mongo model
+        return $http.put('/posts/' + post._id + '/addWinAgainstGeoff')
+            .success(function (data) {
+                //if we know it worked on the backend, update frontend
+                post.winsAgainstGeoff += 1;
+            });
+    };
+    //Add win against Luke
+    o.addWinAgainstLuke = function (post) {
+        //use the express route for this post's id to add an upvote to it in the mongo model
+        return $http.put('/posts/' + post._id + '/addWinAgainstLuke')
+            .success(function (data) {
+                //if we know it worked on the backend, update frontend
+                post.winsAgainstJake += 1;
+            });
+    };
+    //Add loss to Luke
+    o.addLossToLuke = function (post) {
+        //use the express route for this post's id to add an upvote to it in the mongo model
+        return $http.put('/posts/' + post._id + '/addLossToLuke')
+            .success(function (data) {
+                //if we know it worked on the backend, update frontend
+                post.lossesToLuke += 1;
+            });
+    };
+    //Add loss to Bill
+    o.addLossToBill = function (post) {
+        //use the express route for this post's id to add an upvote to it in the mongo model
+        return $http.put('/posts/' + post._id + '/addLossToBill')
+            .success(function (data) {
+                //if we know it worked on the backend, update frontend
+                post.lossesToBill += 1;
+            });
+    };
+    //Add loss to Kevin
+    o.addLossToKevin = function (post) {
+        //use the express route for this post's id to add an upvote to it in the mongo model
+        return $http.put('/posts/' + post._id + '/addLossToKevin')
+            .success(function (data) {
+                //if we know it worked on the backend, update frontend
+                post.lossesToKevin += 1;
+            });
+    };
+    //Add loss to Geoff
+    o.addLossToGeoff = function (post) {
+        //use the express route for this post's id to add an upvote to it in the mongo model
+        return $http.put('/posts/' + post._id + '/addLossToGeoff')
+            .success(function (data) {
+                //if we know it worked on the backend, update frontend
+                post.lossesToGeoff += 1;
+            });
+    };
+    //Add loss to Jake
+    o.addLossToLuke = function (post) {
+        //use the express route for this post's id to add an upvote to it in the mongo model
+        return $http.put('/posts/' + post._id + '/addLossToJake')
+            .success(function (data) {
+                //if we know it worked on the backend, update frontend
+                post.lossesToJake += 1;
+            });
+    };
+    //Add overtime loss to Luke
+    o.addOvertimeLossToLuke = function (post) {
+        //use the express route for this post's id to add an upvote to it in the mongo model
+        return $http.put('/posts/' + post._id + '/addOvertimeLossToLuke')
+            .success(function (data) {
+                //if we know it worked on the backend, update frontend
+                post.overtimeLossesToLuke += 1;
+            });
+    };
+    //Add overtime loss to Bill
+    o.addOvertimeLossToBill = function (post) {
+        //use the express route for this post's id to add an upvote to it in the mongo model
+        return $http.put('/posts/' + post._id + '/addOvertimeLossToBill')
+            .success(function (data) {
+                //if we know it worked on the backend, update frontend
+                post.overtimeLossesToBill += 1;
+            });
+    };
+        //Add overtime loss to Jake
+    o.addOvertimeLossToJake = function (post) {
+        //use the express route for this post's id to add an upvote to it in the mongo model
+        return $http.put('/posts/' + post._id + '/addOvertimeLossToJake')
+            .success(function (data) {
+                //if we know it worked on the backend, update frontend
+                post.overtimeLossesToJake += 1;
+            });
+    };
+        //Add overtime loss to Geoff
+    o.addOvertimeLossToGeoff = function (post) {
+        //use the express route for this post's id to add an upvote to it in the mongo model
+        return $http.put('/posts/' + post._id + '/addOvertimeLossToGeoff')
+            .success(function (data) {
+                //if we know it worked on the backend, update frontend
+                post.overtimeLossesToGeoff += 1;
+            });
+    };
+    //Add overtime loss to Kevin
+    o.addOvertimeLossToKevin = function (post) {
+        //use the express route for this post's id to add an upvote to it in the mongo model
+        return $http.put('/posts/' + post._id + '/addOvertimeLossToKevin')
+            .success(function (data) {
+                //if we know it worked on the backend, update frontend
+                post.overtimeLossesToKevin += 1;
             });
     };
     //downvotes
@@ -152,7 +291,6 @@ potatoNews.factory('records', ['$http', function ($http){
     //this local factory, so the mongodb and angular data is the same
     //sweet!
     o.create = function(record) {
-    debugger;
         return $http.post('/records', record).success(function (data) {
             o.records.push(data);
         });
@@ -168,7 +306,6 @@ potatoNews.factory('records', ['$http', function ($http){
     };
     //downvotes
     o.downvote = function (record) {
-    debugger;
         return $http.put('/records/' + record._id + '/downvote')
             .success(function (data) {
                 record.losses -= 1;
@@ -208,9 +345,9 @@ potatoNews.controller('MainCtrl', [
 'posts',
 'records',
 function($scope, posts, records){
-    
     $scope.posts = posts.posts;
     $scope.records = records.records;
+    $scope.overtime = false;
     //setting title to blank here to prevent empty posts
     $scope.title = '';
     
@@ -220,7 +357,6 @@ function($scope, posts, records){
             return;
         }
                  
-        debugger;    
         posts.create({
             name: $scope.name,
             deleted: false,
@@ -228,9 +364,14 @@ function($scope, posts, records){
         //clear the values
         $scope.title = '';
         $scope.link = '';
+        $scope.winnerGoals = null;
+        $scope.loserGoals = null;
     };
     
     $scope.enterResult = function(){
+    
+        debugger;
+    		//Validity Checking:
     		if($scope.winner.length === 0) {
             alert('Winner is required!');
             return;
@@ -239,11 +380,123 @@ function($scope, posts, records){
             alert('Loser is required!');
             return;
         }
+        if($scope.winnerGoals === null) {
+            alert('Winner Goals is needed!');
+            return;
+        }
+        if($scope.loser === $scope.winner){
+            alert('Winner and loser cannot be the same!');
+            return;
+        }
+        
         
         $scope.posts.forEach(function(post) {
           if (post._id === $scope.winner._id) {
               //found winner
               posts.upvote(post);
+              //if kevin is the winner, give kevin a win against the loser.
+              if($scope.winner.name == "Kevin")
+              {
+                  debugger;
+                  if($scope.loser.name == "Luke")
+                  {
+                      debugger;
+                      posts.addWinAgainstLuke(post);
+                  }
+                  else if($scope.loser.name == "Bill")
+                  {
+                      posts.addWinAgainstBill(post);
+                  }
+                  else if($scope.loser.name == "Jake")
+                  {
+                      posts.addWinAgainstJake(post);
+                  }
+                  else if($scope.loser.name == "Geoff")
+                  {
+                      posts.addWinAgainstGeoff(post);
+                  }
+              }
+              else if($scope.winner.name == "Luke")
+              {
+                  if($scope.loser.name == "Kevin")
+                  {
+                      debugger;
+                      posts.addWinAgainstKevin(post);
+                  }
+                  else if($scope.loser.name == "Bill")
+                  {
+                      posts.addWinAgainstBill(post);
+                  }
+                  else if($scope.loser.name == "Jake")
+                  {
+                      posts.addWinAgainstJake(post);
+                  }
+                  else if($scope.loser.name == "Geoff")
+                  {
+                      posts.addWinAgainstGeoff(post);
+                  }
+              }
+              else if($scope.winner.name == "Bill")
+              {
+                  if($scope.loser.name == "Luke")
+                  {
+                      debugger;
+                      posts.addWinAgainstLuke(post);
+                  }
+                  else if($scope.loser.name == "Kevin")
+                  {
+                      posts.addWinAgainstKevin(post);
+                  }
+                  else if($scope.loser.name == "Jake")
+                  {
+                      posts.addWinAgainstJake(post);
+                  }
+                  else if($scope.loser.name == "Geoff")
+                  {
+                      posts.addWinAgainstGeoff(post);
+                  }
+              }
+              else if($scope.winner.name == "Jake")
+              {
+                  debugger;
+                  if($scope.loser.name == "Luke")
+                  {
+                      debugger;
+                      posts.addWinAgainstLuke(post);
+                  }
+                  else if($scope.loser.name == "Bill")
+                  {
+                      posts.addWinAgainstBill(post);
+                  }
+                  else if($scope.loser.name == "Kevin")
+                  {
+                      posts.addWinAgainstKevin(post);
+                  }
+                  else if($scope.loser.name == "Geoff")
+                  {
+                      posts.addWinAgainstGeoff(post);
+                  }
+              }
+              else if($scope.winner.name == "Geoff")
+              {
+                  if($scope.loser.name == "Luke")
+                  {
+                      debugger;
+                      posts.addWinAgainstLuke(post);
+                  }
+                  else if($scope.loser.name == "Bill")
+                  {
+                      posts.addWinAgainstBill(post);
+                  }
+                  else if($scope.loser.name == "Jake")
+                  {
+                      posts.addWinAgainstJake(post);
+                  }
+                  else if($scope.loser.name == "Kevin")
+                  {
+                      posts.addWinAgainstKevin(post);
+                  }
+              }
           }
           if (post._id === $scope.loser._id){
               //found loser
@@ -255,6 +508,249 @@ function($scope, posts, records){
               {
                   posts.addLoss(post);
               }
+              if($scope.loser.name == "Kevin")
+              {
+                  debugger;
+                  if($scope.winner.name == "Luke")
+                  {
+                      debugger;
+                      if($scope.overtime === true)
+                      {
+                          posts.addOvertimeLossToLuke(post);
+                      }
+                      else
+                      {
+                          posts.addLossToLuke(post);
+                      }
+                  }
+                  else if($scope.winner.name == "Bill")
+                  {
+                      if($scope.overtime === true)
+                      {
+                          posts.addOvertimeLossToBill(post);
+                      }
+                      else
+                      {
+                          posts.addLossToBill(post);
+                      }
+                  }
+                  else if($scope.winner.name == "Jake")
+                  {
+                      if($scope.overtime === true)
+                      {
+                          posts.addOvertimeLossToJake(post);
+                      }
+                      else
+                      {
+                          posts.addLossToJake(post);
+                      }
+                  }
+                  else if($scope.winner.name == "Geoff")
+                  {
+                      if($scope.overtime === true)
+                      {
+                          posts.addOvertimeLossToGeoff(post);
+                      }
+                      else
+                      {
+                          posts.addLossToGeoff(post);
+                      }
+                  }
+              }
+              else if($scope.loser.name == "Luke")
+              {
+                  if($scope.winner.name == "Kevin")
+                  {
+                      debugger;
+                      if($scope.overtime === true)
+                      {
+                          posts.addOvertimeLossToKevin(post);
+                      }
+                      else
+                      {
+                          posts.addLossToKevin(post);
+                      }
+                  }
+                  else if($scope.winner.name == "Bill")
+                  {
+                      if($scope.overtime === true)
+                      {
+                          posts.addOvertimeLossToBill(post);
+                      }
+                      else
+                      {
+                          posts.addLossToBill(post);
+                      }
+                  }
+                  else if($scope.winner.name == "Jake")
+                  {
+                      if($scope.overtime === true)
+                      {
+                          posts.addOvertimeLossToJake(post);
+                      }
+                      else
+                      {
+                          posts.addLossToJake(post);
+                      }
+                  }
+                  else if($scope.winner.name == "Geoff")
+                  {
+                      if($scope.overtime === true)
+                      {
+                          posts.addOvertimeLossToGeoff(post);
+                      }
+                      else
+                      {
+                          posts.addLossToGeoff(post);
+                      }
+                  }
+              }
+              else if($scope.loser.name == "Bill")
+              {
+                  if($scope.winner.name == "Luke")
+                  {
+                      debugger;
+                      if($scope.overtime === true)
+                      {
+                          posts.addOvertimeLossToLuke(post);
+                      }
+                      else
+                      {
+                          posts.addLossToLuke(post);
+                      }
+                  }
+                  else if($scope.winner.name == "Kevin")
+                  {
+                      if($scope.overtime === true)
+                      {
+                          posts.addOvertimeLossToKevin(post);
+                      }
+                      else
+                      {
+                          posts.addLossToKevin(post);
+                      }
+                  }
+                  else if($scope.winner.name == "Jake")
+                  {
+                      if($scope.overtime === true)
+                      {
+                          posts.addOvertimeLossToJake(post);
+                      }
+                      else
+                      {
+                          posts.addLossToJake(post);
+                      }
+                  }
+                  else if($scope.winner.name == "Geoff")
+                  {
+                      if($scope.overtime === true)
+                      {
+                          posts.addOvertimeLossToGeoff(post);
+                      }
+                      else
+                      {
+                          posts.addLossToGeoff(post);
+                      }
+                  }
+              }
+              else if($scope.loser.name == "Jake")
+              {
+                  if($scope.winner.name == "Luke")
+                  {
+                      debugger;
+                      if($scope.overtime === true)
+                      {
+                          posts.addOvertimeLossToLuke(post);
+                      }
+                      else
+                      {
+                          posts.addLossToLuke(post);
+                      }
+                  }
+                  else if($scope.winner.name == "Bill")
+                  {
+                      if($scope.overtime === true)
+                      {
+                          posts.addOvertimeLossToBill(post);
+                      }
+                      else
+                      {
+                          posts.addLossToBill(post);
+                      }
+                  }
+                  else if($scope.winner.name == "Kevin")
+                  {
+                      if($scope.overtime === true)
+                      {
+                          posts.addOvertimeLossToKevin(post);
+                      }
+                      else
+                      {
+                          posts.addLossToKevin(post);
+                      }
+                  }
+                  else if($scope.winner.name == "Geoff")
+                  {
+                      if($scope.overtime === true)
+                      {
+                          posts.addOvertimeLossToGeoff(post);
+                      }
+                      else
+                      {
+                          posts.addLossToGeoff(post);
+                      }
+                  }
+              }
+              else if($scope.loser.name == "Geoff")
+              {
+                  if($scope.winner.name == "Luke")
+                  {
+                      debugger;
+                      if($scope.overtime === true)
+                      {
+                          posts.addOvertimeLossToLuke(post);
+                      }
+                      else
+                      {
+                          posts.addLossToLuke(post);
+                      }
+                  }
+                  else if($scope.winner.name == "Bill")
+                  {
+                      if($scope.overtime === true)
+                      {
+                          posts.addOvertimeLossToBill(post);
+                      }
+                      else
+                      {
+                          posts.addLossToBill(post);
+                      }
+                  }
+                  else if($scope.winner.name == "Jake")
+                  {
+                      debugger;
+                      if($scope.overtime === true)
+                      {
+                          posts.addOvertimeLossToJake(post);
+                      }
+                      else
+                      {
+                      debugger;
+                          posts.addLossToJake(post);
+                      }
+                  }
+                  else if($scope.winner.name == "Kevin")
+                  {
+                      if($scope.overtime === true)
+                      {
+                          posts.addOvertimeLossToKevin(post);
+                      }
+                      else
+                      {
+                          posts.addLossToKevin(post);
+                      }
+                  }
+              }
           }
         });
         
@@ -262,7 +758,9 @@ function($scope, posts, records){
         records.create({
             winner:$scope.winner.name,
             loser: $scope.loser.name,
-            overtime: false
+            overtime: $scope.overtime,
+            winnerGoals: $scope.winnerGoals,
+            loserGoals: $scope.loserGoals
         });
     }
     
